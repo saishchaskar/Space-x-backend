@@ -13,7 +13,7 @@ app.use("*",(res,req) => res.status(404).json({error:"not found"}))
 const customToken = '12345678w';
 
 // Middleware for token authentication
-app.use(("/auth"), (req, res, next) => {
+app.all(("/auth"), (req, res, next) => {
   const userToken = req.header('Authorization');
   console.log("UserToken: ", userToken)
   // Check if the provided token matches the expected custom token
